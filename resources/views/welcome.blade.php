@@ -43,33 +43,23 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
-                    <li class="nav-item"><a class="nav-link me-lg-3" href="#features"></a></li>
-                    <li class="nav-item"><a class="nav-link me-lg-3" href="#download"></a></li>
+                    <li class="nav-item"><a class="nav-link me-lg-3" href="#features">sssss</a></li>
+                    <li class="nav-item"><a class="nav-link me-lg-3" href="#download">fffff</a></li>
                 </ul>
-                <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0 fw-bold me-2" data-bs-toggle="modal"
-                    data-bs-target="#feedbackModal">
-                    <span class="d-flex align-items-center">
-                        <i class="fa-brands fa-telegram"></i>
-                        <span class="small ms-1"> Telegram</span>
-                    </span>
-                </button>
-                <button class="btn btn-success rounded-pill px-3 mb-2 mb-lg-0 fw-bold me-2" data-bs-toggle="modal"
-                data-bs-target="#feedbackModal">
-                <span class="d-flex align-items-center">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    <span class="small ms-1"> Channel</span>
-                </span>
-            </button>
-            <button class="btn btn-danger rounded-pill px-3 mb-2 mb-lg-0 fw-bold" data-bs-toggle="modal"
-                data-bs-target="#feedbackModal">
-                <span class="d-flex align-items-center">
-                    <i class="fa-brands fa-youtube"></i>
-                    <span class="small ms-1"> Channel</span>
-                </span>
-            </button>
+                <div class="dropdown">
+                    <button class="btn btn-light rounded-pill mb-2 mb-lg-0 dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="ms-1">Informasi</span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#action1">Grup Telegram</a></li>
+                        <li><a class="dropdown-item" href="#action2">Whatsapp Channel</a></li>
+                        <li><a class="dropdown-item" href="#action3">Youtube Tutorial</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>
+    
     <!-- Mashead header-->
     <header class="masthead">
         <div class="container px-5">
@@ -82,9 +72,9 @@
                             <br>Nikmati tantangan dan kumpulkan hadiah dengan menjawab soal-soal yang telah diberikan.</p>
                         <div class="d-flex flex-column flex-lg-row align-items-center">
                             <a class="me-lg-3 mb-4 mb-lg-0" href="#!"><img class="app-badge"
-                                    src="{{ asset('assets/svg/google-play-badge')}}" alt="..." /></a>
-                            <a href="#!"><img class="app-badge" src="assets/img/app-store-badge.svg"
-                                    alt="..." /></a>
+                                    src="{{ asset('assets/img/google_store.png')}}" alt="store" /></a>
+                            <a href="#!"><img class="app-badge" src="{{ asset('assets/img/app_store.png')}}"
+                                    alt="store" /></a>
                         </div>
                     </div>
                 </div>
