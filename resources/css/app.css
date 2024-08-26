@@ -10923,7 +10923,7 @@ section {
 
 .device[data-device=iPhoneX][data-orientation=portrait][data-color=black]::after {
   content: "";
-  background-image: url("assets/img/portrait_black.png");
+  /* background-image: url('/assets/img/portrait_black.png'); */
 }
 
 .device[data-device=iPhoneX][data-orientation=portrait][data-color=black] .button {
@@ -10973,17 +10973,22 @@ section.cta:before {
   display: none;
 }
 .features-device-mockup .circle .gradient-start-color {
-  stop-color: #9f1ae2;
+  stop-color: #ffc107;
 }
 .features-device-mockup .circle .gradient-end-color {
-  stop-color: #9f1ae2;
+  stop-color: #ffc107;
 }
+
+.features-device-mockup .circle .gradient-light-color {
+  stop-color: #ffffff;
+}
+
 .features-device-mockup .shape-1 {
   position: absolute;
   height: 1rem;
   width: 1rem;
   transform: rotate(10deg);
-  fill: #9f1ae2;
+  fill: #ffc107;
   top: 15%;
   right: 10%;
 }
@@ -10991,7 +10996,7 @@ section.cta:before {
   position: absolute;
   height: 0.75rem;
   width: 0.75rem;
-  fill: #9f1ae2;
+  fill: #ffc107;
   bottom: 15%;
   left: 10%;
 }
@@ -11085,17 +11090,17 @@ footer a:hover, footer a:active, footer a:focus {
   display: none;
 }
 .masthead .masthead-device-mockup .circle .gradient-start-color {
-  stop-color: #9f1ae2;
+  stop-color: #ffc107;
 }
 .masthead .masthead-device-mockup .circle .gradient-end-color {
-  stop-color: #9f1ae2;
+  stop-color: #ffc107;
 }
 .masthead .masthead-device-mockup .shape-1 {
   position: absolute;
   height: 1rem;
   width: 1rem;
   transform: rotate(-10deg);
-  fill: #9f1ae2;
+  fill: #ffc107;
   bottom: 15%;
   left: 10%;
 }
@@ -11103,7 +11108,7 @@ footer a:hover, footer a:active, footer a:focus {
   position: absolute;
   height: 0.75rem;
   width: 0.75rem;
-  fill: #9f1ae2;
+  fill: #ffc107;
   top: 15%;
   right: 10%;
 }
