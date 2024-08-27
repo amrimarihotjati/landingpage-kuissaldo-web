@@ -30,13 +30,10 @@
         <div class="container px-5">
             <a class="navbar-brand fw-bold" href="#page-top">{{ env('app_name', 'Kuis Saldo') }}</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Menu
-                <i class="bi-list"></i>
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
-                    <li class="nav-item"><a class="nav-link me-lg-3" href="#featuresKuis">Kuis</a></li>
                     <li class="nav-item"><a class="nav-link me-lg-3" href="#featuresDaget">Dana Kaget</a></li>
                     <li class="nav-item"><a class="nav-link me-lg-3" href="#featuresPoget">Point Kaget</a></li>
                     <li class="nav-item"><a class="nav-link me-lg-3" href="#featuresRefferal">Refferal</a></li>
@@ -170,7 +167,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 order-lg-0">
-                    <div class="features-device-mockup">
+                    <div class="features-device-mockup" data-aos="zoom-in" data-aos-duration="1500">
                         <svg class="circle" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                             <defs>
                                 <linearGradient id="circleGradient" gradientTransform="rotate(45)">
@@ -214,7 +211,7 @@
                         sederhana dan mudah diikuti, sehingga siapa pun bisa berpartisipasi dan memenangkannya.</p>
                 </div>
                 <div class="col-sm-8 col-md-6">
-                    <div class="features-device-mockup">
+                    <div class="features-device-mockup" data-aos="zoom-in" data-aos-duration="1500">
                         <svg class="circle" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                             <defs>
                                 <linearGradient id="circleGradient" gradientTransform="rotate(45)">
@@ -261,7 +258,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 order-lg-0">
-                    <div class="features-device-mockup">
+                    <div class="features-device-mockup" data-aos="zoom-in" data-aos-duration="1500">
                         <svg class="circle" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                             <defs>
                                 <linearGradient id="circleGradient" gradientTransform="rotate(45)">
@@ -306,7 +303,7 @@
                         bergabung, semakin besar peluang Kamu untuk mengumpulkan point lebih cepat!</p>
                 </div>
                 <div class="col-sm-8 col-md-6">
-                    <div class="features-device-mockup">
+                    <div class="features-device-mockup" data-aos="zoom-in" data-aos-duration="1500">
                         <svg class="circle" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                             <defs>
                                 <linearGradient id="circleGradient" gradientTransform="rotate(45)">
@@ -354,7 +351,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 order-lg-0">
-                    <div class="features-device-mockup">
+                    <div class="features-device-mockup" data-aos="zoom-in" data-aos-duration="1500">
                         <svg class="circle" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                             <defs>
                                 <linearGradient id="circleGradient" gradientTransform="rotate(45)">
@@ -404,11 +401,7 @@
         <div class="container px-5">
             <div class="text-white-50 small">
                 <div class="mb-2">&copy; KUISSALDO 2024. All Rights Reserved.</div>
-                <a href="#!">Privacy</a>
-                <span class="mx-1">&middot;</span>
-                <a href="#!">Terms</a>
-                <span class="mx-1">&middot;</span>
-                <a href="#!">FAQ</a>
+                <a href="/privterms">Privacy - Terms - Faq</a>
             </div>
         </div>
     </footer>
