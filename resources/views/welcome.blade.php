@@ -61,11 +61,8 @@
             <div class="row gx-5 align-items-center" data-aos="zoom-in" data-aos-duration="1500">
                 <div class="col-lg-6">
                     <div class="mb-5 mb-lg-0 text-center text-lg-start">
-                        <h1 class="display-1 lh-1 mb-3">Main kuis Dapat Saldo</h1>
-                        <p class="lead fw-normal text-muted mb-5">Mainkan kuis dan jawab soal-soal untuk mendapatkan
-                            saldo ShopeePay atau Dana.
-                            <br>Nikmati tantangan dan kumpulkan hadiah dengan menjawab soal-soal yang telah diberikan.
-                        </p>
+                        <h1 class="display-1 lh-1 mb-3">{{ $mSection->section_1_title }}</h1>
+                        <p class="lead fw-normal text-muted mb-5">{{ $mSection->section_1_desc }}</p>
                         <div class="d-flex flex-column flex-lg-row align-items-center">
                             <a class="me-lg-3 mb-4 mb-lg-0" href="#!"><img class="app-badge"
                                     src="{{ asset('assets/img/google_store.png') }}" alt="store" /></a>
@@ -113,7 +110,7 @@
         <div class="container px-5">
             <div class="row gx-5 justify-content-center">
                 <div class="col-xl-8">
-                    <div class="h2 fs-1 text-white mb-4" data-aos="zoom-in-up" data-aos-duration="1500">"Tak hanya uji pengetahuan, tetapi juga menghasilkan."</div>
+                    <div class="h2 fs-1 text-white mb-4" data-aos="zoom-in-up" data-aos-duration="1500">{{ $mSection->section_2_desc }}</div>
                 </div>
             </div>
         </div>
@@ -129,38 +126,32 @@
                             <div class="col-md-6 mb-5">
                                 <div class="text-center">
                                     <i class="bi-phone icon-feature text-gradient d-block mb-3"></i>
-                                    <h3 class="font-alt fw-bold">Main Kuis</h3>
-                                    <p class="text-muted mb-0">Jawab pertanyaan pertanyaan dengan benar sesuai kategori
-                                        yang ingin kamu mainkan, sebelum waktu untuk pertanyaan habis.</p>
+                                    <h3 class="font-alt fw-bold">{{ $mSection->section_3_subtitle_1 }}</h3>
+                                    <p class="text-muted mb-0">{{ $mSection->section_3_subdesc_1 }}</p>
                                 </div>
                             </div>
 
                             <div class="col-md-6 mb-5">
                                 <div class="text-center">
                                     <i class="bi-phone icon-feature text-gradient d-block mb-3"></i>
-                                    <h3 class="font-alt fw-bold">Fifty Fifty</h3>
-                                    <p class="text-muted mb-0">Kamu bisa memilih opsi fifty fifty untuk menghapus 2
-                                        jawaban yang salah, dengan kemungkinan opsi jawaban akan 50% benar.
-                                    </p>
+                                    <h3 class="font-alt fw-bold">{{ $mSection->section_3_subtitle_2 }}</h3>
+                                    <p class="text-muted mb-0">{{ $mSection->section_3_subdesc_2 }}</p>
                                 </div>
                             </div>
 
                             <div class="col-md-6 mb-5">
                                 <div class="text-center">
                                     <i class="bi-camera icon-feature text-gradient d-block mb-3"></i>
-                                    <h3 class="font-alt fw-bold">Rewards Video</h3>
-                                    <p class="text-muted mb-0">Skip pertanyaan yang terlalu sulit untuk kamu hanya
-                                        dengan tugas menonton iklan dan kamu akan mendapatkan jawaban secara instant</p>
+                                    <h3 class="font-alt fw-bold">{{ $mSection->section_3_subtitle_3 }}</h3>
+                                    <p class="text-muted mb-0">{{ $mSection->section_3_subdesc_3 }}</p>
                                 </div>
                             </div>
 
                             <div class="col-md-6 mb-5 mb-md-0">
                                 <div class="text-center">
                                     <i class="bi-gift icon-feature text-gradient d-block mb-3"></i>
-                                    <h3 class="font-alt fw-bold">Double Points</h3>
-                                    <p class="text-muted mb-0">Kamu bisa menggandakan point kamu hanya dengan tugas
-                                        menonton iklan saja. maka rewards point akan langsung terakumulasi dengan total
-                                        point yang kamu raih</p>
+                                    <h3 class="font-alt fw-bold">{{ $mSection->section_3_subtitle_4 }}</h3>
+                                    <p class="text-muted mb-0">{{ $mSection->section_3_subdesc_4 }}</p>
                                 </div>
                             </div>
                         </div>
@@ -206,10 +197,8 @@
         <div class="container px-5" data-aos="fade-left" data-aos-duration="1500">
             <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
                 <div class="col-12 col-lg-5">
-                    <h2 class="display-4 lh-1 mb-4">Dana Kaget</h2>
-                    <p class="lead fw-normal text-light mb-5 mb-lg-0">Dana Kaget adalah fitur yang memungkinkan Anda
-                        mendapatkan hadiah saldo Dana dengan menyelesaikan tugas-tugas yang telah diberikan. Tugasnya
-                        sederhana dan mudah diikuti, sehingga siapa pun bisa berpartisipasi dan memenangkannya.</p>
+                    <h2 class="display-4 lh-1 mb-4">{{ $mSection->section_4_title }}</h2>
+                    <p class="lead fw-normal text-light mb-5 mb-lg-0">{{ $mSection->section_4_desc }}</p>
                 </div>
                 <div class="col-sm-8 col-md-6">
                     <div class="features-device-mockup" data-aos="zoom-in" data-aos-duration="1500">
@@ -251,11 +240,8 @@
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-8 order-lg-1 mb-5 mb-lg-0">
                     <div class="container-fluid px-5">
-                        <h2 class="display-4 lh-1 mb-4">Point Kaget</h2>
-                        <p class="text-muted lead fw-normal mb-5 mb-lg-0">Point Kaget adalah fitur yang memberi Anda
-                            kesempatan untuk mengumpulkan poin dengan menyelesaikan berbagai tugas yang telah disiapkan.
-                            Tugas-tugas ini mudah diikuti, dan setiap poin yang Anda kumpulkan tentu akan instant di
-                            dapat.</p>
+                         <h2 class="display-4 lh-1 mb-4">{{ $mSection->section_5_title }}</h2>
+                    <p class="lead fw-normal text-dark mb-5 mb-lg-0">{{ $mSection->section_5_desc }}</p>
                     </div>
                 </div>
                 <div class="col-lg-4 order-lg-0">
@@ -297,11 +283,8 @@
         <div class="container px-5" data-aos="fade-left" data-aos-duration="1500">
             <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
                 <div class="col-12 col-lg-5">
-                    <h2 class="display-4 lh-1 mb-4">Refferal</h2>
-                    <p class="lead fw-normal text-light mb-5 mb-lg-0">Ajak teman bergabung dan dapatkan bonus saldo
-                        setelah mereka berhasil terdaftar dan setiap kali mereka menukarkan point melalui link referral
-                        Kamu. Semakin banyak teman yang
-                        bergabung, semakin besar peluang Kamu untuk mengumpulkan point lebih cepat!</p>
+                     <h2 class="display-4 lh-1 mb-4">{{ $mSection->section_6_title }}</h2>
+                    <p class="lead fw-normal text-light mb-5 mb-lg-0">{{ $mSection->section_6_desc }}</p>
                 </div>
                 <div class="col-sm-8 col-md-6">
                     <div class="features-device-mockup" data-aos="zoom-in" data-aos-duration="1500">
@@ -343,12 +326,8 @@
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-8 order-lg-1 mb-5 mb-lg-0">
                     <div class="container-fluid px-5">
-                        <h2 class="display-4 lh-1 mb-4">Badge</h2>
-                        <p class="text-muted lead fw-normal mb-5 mb-lg-0">Tukar point Kamu dengan badge eksklusif dan
-                            rasakan pengalaman istimewa!
-                            </br> Setiap badge yang Kamu kumpulkan akan membuka kejutan menarik serta bonus-bonus
-                            menarik lainnya yang tidak boleh Kamu lewatkan. Nikmati manfaat ekstra dan tunjukkan
-                            pencapaian Kamu dengan bangga!</p>
+                        <h2 class="display-4 lh-1 mb-4">{{ $mSection->section_7_title }}</h2>
+                    <p class="lead fw-normal text-dark mb-5 mb-lg-0">{{ $mSection->section_7_desc }}</p>
                     </div>
                 </div>
                 <div class="col-lg-4 order-lg-0">
