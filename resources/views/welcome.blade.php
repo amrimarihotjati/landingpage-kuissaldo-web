@@ -12,7 +12,7 @@
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#9f1ae2">
 
-    <title>Kuis Saldo</title>
+    <title>{{ $mLandingPage->name }}</title>
 
     <link rel="icon" href="{{ asset('favicon.ico') }}" />
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
@@ -22,6 +22,45 @@
     <link rel="icon" type="image/png" sizes="512x512" href="{{ asset('android-chrome-512x512.png') }}">
 
     @vite(['resources/css/kuis.css', 'resources/css/app.css', 'resources/sass/app.scss', 'resources/js/app.js'])
+    <style type="text/css">
+        .btn-accent {
+            color: #eef4fd;
+            background-color: {{ $mLandingPage->theme }};
+            border-color: {{ $mLandingPage->theme }}
+        }
+
+        .btn-accent:hover {
+            color: #eef4fd;
+            background-color: {{ $mLandingPage->theme }};
+            border-color: #8ad3d3
+        }
+
+        .btn-accent:focus,
+        .btn-accent.focus {
+            box-shadow: 0 0 0 .2rem rgba(91, 194, 194, 0.0)
+        }
+
+        .btn-accent.disabled,
+        .btn-accent:disabled {
+            color: #eef4fd;
+            background-color: {{ $mLandingPage->theme }};
+            border-color: {{ $mLandingPage->theme }}
+        }
+
+        .btn-accent:not(:disabled):not(.disabled):active,
+        .btn-accent:not(:disabled):not(.disabled).active,
+        .show>.btn-accent.dropdown-toggle {
+            color: #eef4fd;
+            background-color: {{ $mLandingPage->theme }};
+            border-color: {{ $mLandingPage->theme }}
+        }
+
+        .btn-accent:not(:disabled):not(.disabled):active:focus,
+        .btn-accent:not(:disabled):not(.disabled).active:focus,
+        .show>.btn-accent.dropdown-toggle:focus {
+
+        }
+    </style>
 </head>
 
 <body id="page-top">
@@ -35,10 +74,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
-                    <li class="nav-item"><a class="nav-link me-lg-3" href="#featuresDaget">Dana Kaget</a></li>
-                    <li class="nav-item"><a class="nav-link me-lg-3" href="#featuresPoget">Point Kaget</a></li>
-                    <li class="nav-item"><a class="nav-link me-lg-3" href="#featuresRefferal">Refferal</a></li>
-                    <li class="nav-item"><a class="nav-link me-lg-3" href="#featuresBadge">Badge</a></li>
+                    <li class="nav-item"><a class="nav-link me-lg-3"
+                            href="#features4">{{ $mSection->section_4_title }}</a></li>
+                    <li class="nav-item"><a class="nav-link me-lg-3"
+                            href="#features5">{{ $mSection->section_5_title }}</a></li>
+                    <li class="nav-item"><a class="nav-link me-lg-3"
+                            href="#features6">{{ $mSection->section_6_title }}</a></li>
+                    <li class="nav-item"><a class="nav-link me-lg-3"
+                            href="#features7">{{ $mSection->section_7_title }}</a></li>
                     <li class="nav-item"><a class="nav-link me-lg-3" href="#marketApp">Download</a></li>
                 </ul>
                 <div class="dropdown">
@@ -47,9 +90,12 @@
                         <span class="ms-1">Support</span>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#action1">Telegram Group</a></li>
-                        <li><a class="dropdown-item" href="#action2">Whatsapp Channel</a></li>
-                        <li><a class="dropdown-item" href="#action3">Youtube</a></li>
+                        <li><a class="dropdown-item" href="{{ $mLandingPage->telegram_url }}" target="_blank">Telegram
+                                Group</a></li>
+                        <li><a class="dropdown-item" href="{{ $mLandingPage->whatsapp_url }}" target="_blank">Whatsapp
+                                Channel</a></li>
+                        <li><a class="dropdown-item" href="{{ $mLandingPage->youtube_url }}"
+                                target="_blank">Youtube</a></li>
                     </ul>
                 </div>
             </div>
@@ -64,10 +110,34 @@
                         <h1 class="display-1 lh-1 mb-3">{{ $mSection->section_1_title }}</h1>
                         <p class="lead fw-normal text-muted mb-5">{{ $mSection->section_1_desc }}</p>
                         <div class="d-flex flex-column flex-lg-row align-items-center">
-                            <a class="me-lg-3 mb-4 mb-lg-0" href="#!"><img class="app-badge"
-                                    src="{{ asset('assets/img/google_store.png') }}" alt="store" /></a>
-                            <a href="#!"><img class="app-badge" src="{{ asset('assets/img/app_store.png') }}"
-                                    alt="store" /></a>
+                         <div class="dropdown">
+                          <button type="button" class="btn btn-accent dropdown-toggle rounded rounded-2 fw-bold shadow" data-bs-toggle="dropdown"><i class="fa fa-download me-1"></i> DOWNLOAD SEKARANG
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><h5 class="dropdown-header">Download Via</h5></li>
+                            <li><a class="dropdown-item" href="#">
+                              <img src="{{ asset('assets/img/ic_playstore.png') }}" alt="" width="30" height="30"> Google Play</a>
+                          </li>
+                          <li><a class="dropdown-item" href="#">
+                              <img src="{{ asset('assets/img/ic_samsungstore.png') }}" alt="" width="30" height="30"> Samsung Store </a>
+                          </li>
+                          <li><a class="dropdown-item" href="#">
+                              <img src="{{ asset('assets/img/ic_mistore.png') }}" alt="" width="30" height="30"> Mi Store</a>
+                          </li>
+                          <li><a class="dropdown-item" href="#">
+                              <img src="{{ asset('assets/img/ic_oppostore.png') }}" alt="" width="30" height="30"> Oppo Store</a>
+                          </li>
+                          <li><a class="dropdown-item" href="#">
+                              <img src="{{ asset('assets/img/ic_vivostore.png') }}" alt="" width="30" height="30"> Vivo Store</a>
+                          </li>
+                          <li><hr class="dropdown-divider"></hr></li>
+                          <li><h5 class="dropdown-header">Server Alternatif</h5></li>
+                          <li><a class="dropdown-item" href="#">
+                              <img src="{{ asset('favicon-32x32.png') }}" alt="" width="30" height="30"> Download</a>
+                          </li>
+                      </ul>
+                  </div>
+
                         </div>
                     </div>
                 </div>
@@ -76,8 +146,10 @@
                         <svg class="circle" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                             <defs>
                                 <linearGradient id="circleGradient" gradientTransform="rotate(45)">
-                                    <stop class="gradient-start-color" offset="0%"></stop>
-                                    <stop class="gradient-end-color" offset="100%"></stop>
+                                    <stop class="gradient-start-color" offset="0%"
+                                        style="stop-color:{{ $mLandingPage->theme_accent }}"></stop>
+                                    <stop class="gradient-end-color" offset="100%"
+                                        style="stop-color:{{ $mLandingPage->theme_highlight }}"></stop>
                                 </linearGradient>
                             </defs>
                             <circle cx="50" cy="50" r="50"></circle>
@@ -95,7 +167,7 @@
                             <div class="device" data-device="iPhoneX" data-orientation="portrait" data-color="black"
                                 style="background-image: url('/assets/img/portrait_black.png')">
                                 <div class="screen bg-black">
-                                    <img src="/assets/img/ss_menu_main.png" alt="Features Screen"
+                                    <img src="{{ $mSection->section_1_img }}" alt="Features Screen"
                                         style="max-width: 100%; height: auto;" loading="lazy" />
                                 </div>
                             </div>
@@ -106,11 +178,12 @@
         </div>
     </header>
 
-    <aside class="text-center bg-gradient-primary-to-secondary">
+    <aside class="text-center" style="background-color:{{ $mLandingPage->theme }};">
         <div class="container px-5">
             <div class="row gx-5 justify-content-center">
                 <div class="col-xl-8">
-                    <div class="h2 fs-1 text-white mb-4" data-aos="zoom-in-up" data-aos-duration="1500">{{ $mSection->section_2_desc }}</div>
+                    <div class="h2 fs-1 text-white mb-4" data-aos="zoom-in-up" data-aos-duration="1500">
+                        {{ $mSection->section_2_desc }}</div>
                 </div>
             </div>
         </div>
@@ -163,8 +236,10 @@
                         <svg class="circle" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                             <defs>
                                 <linearGradient id="circleGradient" gradientTransform="rotate(45)">
-                                    <stop class="gradient-start-color" offset="0%"></stop>
-                                    <stop class="gradient-end-color" offset="100%"></stop>
+                                    <stop class="gradient-start-color" offset="0%"
+                                        style="stop-color:{{ $mLandingPage->theme_accent }}"></stop>
+                                    <stop class="gradient-end-color" offset="100%"
+                                        style="stop-color:{{ $mLandingPage->theme_highlight }}"></stop>
                                 </linearGradient>
                             </defs>
                             <circle cx="50" cy="50" r="50"></circle>
@@ -182,7 +257,7 @@
                             <div class="device" data-device="iPhoneX" data-orientation="portrait" data-color="black"
                                 style="background-image: url('/assets/img/portrait_black.png')">
                                 <div class="screen bg-black">
-                                    <img src="/assets/img/ss_menu_playquiz.png" alt="Features Screen"
+                                    <img src="{{ $mSection->section_3_img }}" alt="Features Screen"
                                         style="max-width: 100%; height: auto;" loading="lazy" />
                                 </div>
                             </div>
@@ -193,7 +268,7 @@
         </div>
     </section>
 
-    <section class="bg-gradient-primary-to-secondary text-white" id="featuresDaget">
+    <section class="text-white" id="features4" style="background-color:{{ $mLandingPage->theme }};">
         <div class="container px-5" data-aos="fade-left" data-aos-duration="1500">
             <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
                 <div class="col-12 col-lg-5">
@@ -205,8 +280,10 @@
                         <svg class="circle" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                             <defs>
                                 <linearGradient id="circleGradient" gradientTransform="rotate(45)">
-                                    <stop class="gradient-start-color" offset="0%"></stop>
-                                    <stop class="gradient-end-color" offset="100%"></stop>
+                                    <stop class="gradient-start-color" offset="0%"
+                                        style="stop-color:{{ $mLandingPage->theme_accent }}"></stop>
+                                    <stop class="gradient-end-color" offset="100%"
+                                        style="stop-color:{{ $mLandingPage->theme_highlight }}"></stop>
                                 </linearGradient>
                             </defs>
                             <circle cx="50" cy="50" r="50"></circle>
@@ -224,7 +301,7 @@
                             <div class="device" data-device="iPhoneX" data-orientation="portrait" data-color="black"
                                 style="background-image: url('/assets/img/portrait_black.png')">
                                 <div class="screen bg-black">
-                                    <img src="/assets/img/ss_menu_daget.png" alt="Features Screen"
+                                    <img src="{{ $mSection->section_4_img }}" alt="Features Screen"
                                         style="max-width: 100%; height: auto;" loading="lazy" />
                                 </div>
                             </div>
@@ -235,13 +312,13 @@
         </div>
     </section>
 
-    <section id="featuresPoget">
+    <section id="features5">
         <div class="container px-5" data-aos="fade-right" data-aos-duration="1500">
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-8 order-lg-1 mb-5 mb-lg-0">
                     <div class="container-fluid px-5">
-                         <h2 class="display-4 lh-1 mb-4">{{ $mSection->section_5_title }}</h2>
-                    <p class="lead fw-normal text-dark mb-5 mb-lg-0">{{ $mSection->section_5_desc }}</p>
+                        <h2 class="display-4 lh-1 mb-4">{{ $mSection->section_5_title }}</h2>
+                        <p class="lead fw-normal text-dark mb-5 mb-lg-0">{{ $mSection->section_5_desc }}</p>
                     </div>
                 </div>
                 <div class="col-lg-4 order-lg-0">
@@ -249,8 +326,10 @@
                         <svg class="circle" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                             <defs>
                                 <linearGradient id="circleGradient" gradientTransform="rotate(45)">
-                                    <stop class="gradient-start-color" offset="0%"></stop>
-                                    <stop class="gradient-end-color" offset="100%"></stop>
+                                    <stop class="gradient-start-color" offset="0%"
+                                        style="stop-color:{{ $mLandingPage->theme_accent }}"></stop>
+                                    <stop class="gradient-end-color" offset="100%"
+                                        style="stop-color:{{ $mLandingPage->theme_highlight }}"></stop>
                                 </linearGradient>
                             </defs>
                             <circle cx="50" cy="50" r="50"></circle>
@@ -268,7 +347,7 @@
                             <div class="device" data-device="iPhoneX" data-orientation="portrait" data-color="black"
                                 style="background-image: url('/assets/img/portrait_black.png')">
                                 <div class="screen bg-black">
-                                    <img src="/assets/img/ss_menu_poget.png" alt="Features Screen"
+                                    <img src="{{ $mSection->section_5_img }}" alt="Features Screen"
                                         style="max-width: 100%; height: auto;" loading="lazy" />
                                 </div>
                             </div>
@@ -279,11 +358,11 @@
         </div>
     </section>
 
-    <section class="bg-gradient-primary-to-secondary text-white" id="featuresRefferal">
+    <section class="text-white" style="background-color:{{ $mLandingPage->theme }};" id="features6">
         <div class="container px-5" data-aos="fade-left" data-aos-duration="1500">
             <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
                 <div class="col-12 col-lg-5">
-                     <h2 class="display-4 lh-1 mb-4">{{ $mSection->section_6_title }}</h2>
+                    <h2 class="display-4 lh-1 mb-4">{{ $mSection->section_6_title }}</h2>
                     <p class="lead fw-normal text-light mb-5 mb-lg-0">{{ $mSection->section_6_desc }}</p>
                 </div>
                 <div class="col-sm-8 col-md-6">
@@ -291,8 +370,10 @@
                         <svg class="circle" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                             <defs>
                                 <linearGradient id="circleGradient" gradientTransform="rotate(45)">
-                                    <stop class="gradient-start-color" offset="0%"></stop>
-                                    <stop class="gradient-end-color" offset="100%"></stop>
+                                    <stop class="gradient-start-color" offset="0%"
+                                        style="stop-color:{{ $mLandingPage->theme_accent }}"></stop>
+                                    <stop class="gradient-end-color" offset="100%"
+                                        style="stop-color:{{ $mLandingPage->theme_highlight }}"></stop>
                                 </linearGradient>
                             </defs>
                             <circle cx="50" cy="50" r="50"></circle>
@@ -310,7 +391,7 @@
                             <div class="device" data-device="iPhoneX" data-orientation="portrait" data-color="black"
                                 style="background-image: url('/assets/img/portrait_black.png')">
                                 <div class="screen bg-black">
-                                    <img src="/assets/img/ss_menu_refferal.png" alt="Features Screen"
+                                    <img src="{{ $mSection->section_6_img }}" alt="Features Screen"
                                         style="max-width: 100%; height: auto;" loading="lazy" />
                                 </div>
                             </div>
@@ -321,13 +402,13 @@
         </div>
     </section>
 
-    <section id="featuresBadge">
+    <section id="features7">
         <div class="container px-5" data-aos="fade-right" data-aos-duration="1500">
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-8 order-lg-1 mb-5 mb-lg-0">
                     <div class="container-fluid px-5">
                         <h2 class="display-4 lh-1 mb-4">{{ $mSection->section_7_title }}</h2>
-                    <p class="lead fw-normal text-dark mb-5 mb-lg-0">{{ $mSection->section_7_desc }}</p>
+                        <p class="lead fw-normal text-dark mb-5 mb-lg-0">{{ $mSection->section_7_desc }}</p>
                     </div>
                 </div>
                 <div class="col-lg-4 order-lg-0">
@@ -335,8 +416,10 @@
                         <svg class="circle" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                             <defs>
                                 <linearGradient id="circleGradient" gradientTransform="rotate(45)">
-                                    <stop class="gradient-start-color" offset="0%"></stop>
-                                    <stop class="gradient-end-color" offset="100%"></stop>
+                                    <stop class="gradient-start-color" offset="0%"
+                                        style="stop-color:{{ $mLandingPage->theme_accent }}"></stop>
+                                    <stop class="gradient-end-color" offset="100%"
+                                        style="stop-color:{{ $mLandingPage->theme_highlight }}"></stop>
                                 </linearGradient>
                             </defs>
                             <circle cx="50" cy="50" r="50"></circle>
@@ -365,14 +448,48 @@
         </div>
     </section>
 
-    <section class="bg-gradient-primary-to-secondary" id="marketApp">
+    <section class="" style="background-color: {{ $mLandingPage->theme }}; " id="marketApp">
         <div class="container px-5" data-aos="zoom-in-down" data-aos-duration="1500">
-            <h2 class="text-center text-white font-alt mb-4">Download Sekarang</h2>
+            <h2 class="text-center text-white font-alt mb-4">DOWNLOAD SEKARANG</h2>
             <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center">
-                <a class="me-lg-3 mb-4 mb-lg-0" href="#!"><img class="app-badge"
-                        src="{{ asset('assets/img/google_store.png') }}" alt="..." /></a>
-                <a href="#!"><img class="app-badge" src="{{ asset('assets/img/app_store.png') }}"
-                        alt="..." /></a>
+                <div class="row">
+                    <div class="col-md-4">
+                        <a class="mb-lg-0" href="{{ $mApkStore->store_google_url }}">
+                            <img class="app-badge" src="{{ asset('assets/img/google_store.png') }}"
+                                alt="store" />
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="mb-lg-0" href="{{ $mApkStore->store_google_url }}">
+                            <img class="app-badge" src="{{ asset('assets/img/google_store.png') }}"
+                                alt="store" />
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="mb-lg-0" href="{{ $mApkStore->store_google_url }}">
+                            <img class="app-badge" src="{{ asset('assets/img/google_store.png') }}"
+                                alt="store" />
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="mb-lg-0" href="{{ $mApkStore->store_google_url }}">
+                            <img class="app-badge" src="{{ asset('assets/img/google_store.png') }}"
+                                alt="store" />
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="mb-lg-0" href="{{ $mApkStore->store_google_url }}">
+                            <img class="app-badge" src="{{ asset('assets/img/google_store.png') }}"
+                                alt="store" />
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="mb-lg-0" href="{{ $mApkStore->store_google_url }}">
+                            <img class="app-badge" src="{{ asset('assets/img/google_store.png') }}"
+                                alt="store" />
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -380,7 +497,7 @@
     <footer class="bg-black text-center py-5">
         <div class="container px-5">
             <div class="text-white-50 small">
-                <div class="mb-2">&copy; KUISSALDO 2024. All Rights Reserved.</div>
+                <div class="mb-2">&copy; {{ $mLandingPage->name }} 2024. All Rights Reserved.</div>
                 <a href="/privterms">Privacy - Terms - Faq</a>
             </div>
         </div>

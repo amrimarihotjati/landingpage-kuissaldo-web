@@ -15,6 +15,11 @@ class LandingPage extends Model
         'name',
         'domain',
         'theme',
+        'theme_accent',
+        'theme_highlight',
+        'telegram_url',
+        'whatsapp_url',
+        'youtube_url',
         'is_maintanance'
     ];
 
