@@ -21,7 +21,10 @@
     <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('android-chrome-192x192.png') }}">
     <link rel="icon" type="image/png" sizes="512x512" href="{{ asset('android-chrome-512x512.png') }}">
 
-    @vite(['resources/css/kuis.css', 'resources/css/app.css', 'resources/sass/app.scss', 'resources/js/app.js'])
+    @vite('resources/css/app.css')
+    @vite('resources/css/kuis.css')
+    @vite('resources/css/maintanance.css')
+
     <style type="text/css">
         .btn-accent {
             color: #eef4fd;
@@ -58,6 +61,108 @@
         .btn-accent:not(:disabled):not(.disabled):active:focus,
         .btn-accent:not(:disabled):not(.disabled).active:focus,
         .show>.btn-accent.dropdown-toggle:focus {}
+
+        article {
+            position: relative;
+            margin: 20px auto;
+            width: 100%;
+            max-width: 1000px;
+            height: 200px;
+            border: 1px solid #ccc;
+            display: flex;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            padding-bottom: 10px;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        article:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transform: scale(1.001);
+        }
+
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .content-container .article-title {
+            text-align: left;
+            padding: 15px 0;
+            font-size: 20px;
+            color: #333;
+            border-bottom: 2px solid #eee;
+        }
+
+        .content-container .article-content {
+            position: relative;
+            overflow: hidden;
+            color: #666;
+            text-align: left;
+            font-size: 14px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            line-clamp: 3;
+            box-orient: vertical;
+            margin:0px 0px 40px 0px;
+        }
+
+        .read-more-btn {
+            position: absolute;
+            bottom: 14px;
+            right: 14px;
+            padding: 4px 16px;
+            background-color: rgba(0, 0, 0, 0.4);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            border-radius: 5px;
+        }
+
+        .read-more-btn:hover {
+            background-color: {{ $mLandingPage->theme }};
+            color: black;
+            border-radius: 10px;
+        }
+
+        .custom-control-prev,
+        .custom-control-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .custom-control-prev {
+            left: -80px;
+        }
+
+        .custom-control-next {
+            right: -80px;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .container {
+            position: relative;
+        }
     </style>
 </head>
 @if ($mLandingPage->is_maintanance == 0)
@@ -81,7 +186,7 @@
                                 href="#features6">{{ $mSection->section_6_title }}</a></li>
                         <li class="nav-item"><a class="nav-link me-lg-3"
                                 href="#features7">{{ $mSection->section_7_title }}</a></li>
-                        <li class="nav-item"><a class="nav-link me-lg-3" href="#marketApp">Download</a></li>
+                        <li class="nav-item"><a class="nav-link me-lg-3" href="#article">Article</a></li>
                     </ul>
                     <div class="dropdown">
                         <button class="btn btn-light rounded-pill mb-2 mb-lg-0 dropdown-toggle" type="button"
@@ -590,16 +695,56 @@
             </div>
         </section>
 
+        <section class="text-white" id="article">
+            <div class="container px-5 position-relative" data-aos="fade-left" data-aos-duration="1500">
+                <div id="carouselMultiItem" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        @foreach ($mArticle->chunk(3) as $articleChunk)
+                            <div class="carousel-item @if ($loop->first) active @endif">
+                                <div class="row">
+                                    @foreach ($articleChunk as $article)
+                                        <div class="col-md-4">
+                                            <div>
+                                                <article>
+                                                    <div class="content-container">
+                                                        <h4 class="article-title">{{ $article->title }}</h4>
+                                                        <p class="article-content">
+                                                            {{ Illuminate\Support\Str::limit(strip_tags(Purifier::clean($article->content)), 200) }}</p>
+                                                        <a href="{{ route('indexArticleContent', $article->route_page) }}" 
+                                                            class="read-more-btn btn btn-primary">Selengkapnya</a>
+                                                    </div>
+                                                </article>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+
+                    <button class="carousel-control-prev custom-control-prev" type="button"
+                        data-bs-target="#carouselMultiItem" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+
+                    <button class="carousel-control-next custom-control-next" type="button"
+                        data-bs-target="#carouselMultiItem" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </section>
 
         <footer class="bg-black text-center py-5">
             <div class="container px-5">
                 <div class="text-white-50 small">
-                    <div class="mb-2">&copy; {{ $mLandingPage->name }} 2024. All Rights Reserved.</div>
-                    <a href="/privterms">Privacy - Terms - Faq</a>
+                    <div class="mb-2">&copy; {{ $mLandingPage->name }} {{ date('Y') }}. All Rights Reserved.</div>
                 </div>
             </div>
         </footer>
-
+        @vite('resources/js/app.js')
     </body>
 @else
     @include('maintanance')
