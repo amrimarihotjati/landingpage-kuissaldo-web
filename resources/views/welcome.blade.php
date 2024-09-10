@@ -194,7 +194,8 @@
 
                                         @if (!empty($mApkSelfStore->url_apk))
                                             <li>
-                                                <a class="dropdown-item" href="{{ $mApkSelfStore->url_apk }}">
+                                                <a class="dropdown-item"
+                                                    href="{{ env('MASTER_LANDING_URL') }}{{ $mApkSelfStore->url_apk }}">
                                                     <img src="{{ asset('favicon-32x32.png') }}" alt=""
                                                         width="30" height="30"> Download
                                                     V.{{ $mApkSelfStore->version_code_apk }}.{{ $mApkSelfStore->version_name_apk }}
@@ -236,8 +237,8 @@
                                     data-color="black"
                                     style="background-image: url('/assets/img/portrait_black.png')">
                                     <div class="screen bg-black">
-                                        <img src="{{ $mSection->section_1_img }}" alt=""
-                                            style="max-width: 100%; height: auto;" loading="lazy" />
+                                        <img src="{{ env('MASTER_LANDING_URL') }}{{ $mSection->section_1_img }}"
+                                            alt="" style="max-width: 100%; height: auto;" loading="lazy" />
                                     </div>
                                 </div>
                             </div>
@@ -327,8 +328,8 @@
                                     data-color="black"
                                     style="background-image: url('/assets/img/portrait_black.png')">
                                     <div class="screen bg-black">
-                                        <img src="{{ $mSection->section_3_img }}" alt=""
-                                            style="max-width: 100%; height: auto;" loading="lazy" />
+                                        <img src="{{ env('MASTER_LANDING_URL') }}{{ $mSection->section_3_img }}"
+                                            alt="" style="max-width: 100%; height: auto;" loading="lazy" />
                                     </div>
                                 </div>
                             </div>
@@ -372,8 +373,8 @@
                                     data-color="black"
                                     style="background-image: url('/assets/img/portrait_black.png')">
                                     <div class="screen bg-black">
-                                        <img src="{{ $mSection->section_4_img }}" alt=""
-                                            style="max-width: 100%; height: auto;" loading="lazy" />
+                                        <img src="{{ env('MASTER_LANDING_URL') }}{{ $mSection->section_4_img }}"
+                                            alt="" style="max-width: 100%; height: auto;" loading="lazy" />
                                     </div>
                                 </div>
                             </div>
@@ -419,8 +420,8 @@
                                     data-color="black"
                                     style="background-image: url('/assets/img/portrait_black.png')">
                                     <div class="screen bg-black">
-                                        <img src="{{ $mSection->section_5_img }}" alt=""
-                                            style="max-width: 100%; height: auto;" loading="lazy" />
+                                        <img src="{{ env('MASTER_LANDING_URL') }}{{ $mSection->section_5_img }}"
+                                            alt="" style="max-width: 100%; height: auto;" loading="lazy" />
                                     </div>
                                 </div>
                             </div>
@@ -464,8 +465,8 @@
                                     data-color="black"
                                     style="background-image: url('/assets/img/portrait_black.png')">
                                     <div class="screen bg-black">
-                                        <img src="{{ $mSection->section_6_img }}" alt=""
-                                            style="max-width: 100%; height: auto;" loading="lazy" />
+                                        <img src="{{ env('MASTER_LANDING_URL') }}{{ $mSection->section_6_img }}"
+                                            alt="" style="max-width: 100%; height: auto;" loading="lazy" />
                                     </div>
                                 </div>
                             </div>
@@ -511,8 +512,8 @@
                                     data-color="black"
                                     style="background-image: url('/assets/img/portrait_black.png')">
                                     <div class="screen bg-black">
-                                        <img src="{{ $mSection->section_6_img }}" alt=""
-                                            style="max-width: 100%; height: auto;" loading="lazy" />
+                                        <img src="{{ env('MASTER_LANDING_URL') }}{{ $mSection->section_6_img }}"
+                                            alt="" style="max-width: 100%; height: auto;" loading="lazy" />
                                     </div>
                                 </div>
                             </div>
@@ -523,61 +524,71 @@
         </section>
 
         <section class="" style="background-color: {{ $mLandingPage->theme }};" id="marketApp">
-    <div class="container px-5 justify-content-center text-center" data-aos="zoom-in-down" data-aos-duration="1500">
-        <h2 class="text-center text-white mb-4">DOWNLOAD SEKARANG</h2>
-        <span class="justify-content-center text-center text-white fw-normal">Pilih opsi unduhan yang paling sesuai untuk mendapatkan aplikasi kami.
-        Kami telah menyediakan beberapa pilihan unduhan agar Anda dapat memilih yang paling sesuai dengan perangkat atau preferensi Anda. Cukup klik salah satu tombol di bawah untuk memulai unduhan dan nikmati kemudahan menggunakan aplikasi kami!</span>
-        <div class="row justify-content-center text-center mt-4 pt-4">
-            @if (!empty($mApkStore->store_google_url))
-            <div class="col-md-4 mb-4">
-                <a href="{{ $mApkStore->store_google_url }}">
-                    <img class="app-badge" src="{{ asset('assets/img/badge_google_store.png') }}" alt="" />
-                </a>
-            </div>
-            @endif
+            <div class="container px-5 justify-content-center text-center" data-aos="zoom-in-down"
+                data-aos-duration="1500">
+                <h2 class="text-center text-white mb-4">DOWNLOAD SEKARANG</h2>
+                <span class="justify-content-center text-center text-white fw-normal">Pilih opsi unduhan yang paling
+                    sesuai untuk mendapatkan aplikasi kami.
+                    Kami telah menyediakan beberapa pilihan unduhan agar Anda dapat memilih yang paling sesuai dengan
+                    perangkat atau preferensi Anda. Cukup klik salah satu tombol di bawah untuk memulai unduhan dan
+                    nikmati kemudahan menggunakan aplikasi kami!</span>
+                <div class="row justify-content-center text-center mt-4 pt-4">
+                    @if (!empty($mApkStore->store_google_url))
+                        <div class="col-md-4 mb-4">
+                            <a href="{{ $mApkStore->store_google_url }}">
+                                <img class="app-badge" src="{{ asset('assets/img/badge_google_store.png') }}"
+                                    alt="" />
+                            </a>
+                        </div>
+                    @endif
 
-            @if (!empty($mApkStore->store_samsung_url))
-            <div class="col-md-4 mb-4">
-                <a href="{{ $mApkStore->store_samsung_url }}">
-                    <img class="app-badge" src="{{ asset('assets/img/badge_samsung_store.png') }}" alt="" />
-                </a>
-            </div>
-            @endif
+                    @if (!empty($mApkStore->store_samsung_url))
+                        <div class="col-md-4 mb-4">
+                            <a href="{{ $mApkStore->store_samsung_url }}">
+                                <img class="app-badge" src="{{ asset('assets/img/badge_samsung_store.png') }}"
+                                    alt="" />
+                            </a>
+                        </div>
+                    @endif
 
-            @if (!empty($mApkStore->store_mi_url))
-            <div class="col-md-4 mb-4">
-                <a href="{{ $mApkStore->store_mi_url }}">
-                    <img class="app-badge" src="{{ asset('assets/img/badge_mi_store.png') }}" alt="" />
-                </a>
-            </div>
-            @endif
+                    @if (!empty($mApkStore->store_mi_url))
+                        <div class="col-md-4 mb-4">
+                            <a href="{{ $mApkStore->store_mi_url }}">
+                                <img class="app-badge" src="{{ asset('assets/img/badge_mi_store.png') }}"
+                                    alt="" />
+                            </a>
+                        </div>
+                    @endif
 
-            @if (!empty($mApkStore->store_oppo_url))
-            <div class="col-md-4 mb-4">
-                <a href="{{ $mApkStore->store_oppo_url }}">
-                    <img class="app-badge" src="{{ asset('assets/img/badge_oppo_store.png') }}" alt="" />
-                </a>
-            </div>
-            @endif
+                    @if (!empty($mApkStore->store_oppo_url))
+                        <div class="col-md-4 mb-4">
+                            <a href="{{ $mApkStore->store_oppo_url }}">
+                                <img class="app-badge" src="{{ asset('assets/img/badge_oppo_store.png') }}"
+                                    alt="" />
+                            </a>
+                        </div>
+                    @endif
 
-            @if (!empty($mApkStore->store_vivo_url))
-            <div class="col-md-4 mb-4">
-                <a href="{{ $mApkStore->store_vivo_url }}">
-                    <img class="app-badge" src="{{ asset('assets/img/badge_vivo_store.png') }}" alt="" />
-                </a>
-            </div>
-            @endif
+                    @if (!empty($mApkStore->store_vivo_url))
+                        <div class="col-md-4 mb-4">
+                            <a href="{{ $mApkStore->store_vivo_url }}">
+                                <img class="app-badge" src="{{ asset('assets/img/badge_vivo_store.png') }}"
+                                    alt="" />
+                            </a>
+                        </div>
+                    @endif
 
-            @if (!empty($mApkSelfStore->url_apk))
-            <div class="col-md-4 mb-4">
-                <a href="{{ $mApkSelfStore->url_apk }}">
-                    <img class="app-badge" src="{{ asset('assets/img/badge_self_store.png') }}" alt="" />
-                </a>
+                    @if (!empty($mApkSelfStore->url_apk))
+                        <div class="col-md-4 mb-4">
+                            <a href="{{ env('MASTER_LANDING_URL') }}{{ $mApkSelfStore->url_apk }}">
+                                <img class="app-badge" src="{{ asset('assets/img/badge_self_store.png') }}"
+                                    alt="" />
+                            </a>
+                        </div>
+                    @endif
+                </div>
             </div>
-            @endif
-        </div>
-    </div>
-</section>
+        </section>
 
 
         <footer class="bg-black text-center py-5">
